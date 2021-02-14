@@ -138,12 +138,12 @@ function addOperator(op) {
     } else if (secondOperand == null && previousKeyType !== 'operator') {
         firstOp = operator;
         secondOperand = displayVal;
-        displayVal = operate(firstOperand, secondOperand, operator);
+        displayVal = Math.round(operate(firstOperand, secondOperand, operator) * 100) / 100;
         firstOperand = displayVal;
     } else if (firstOperand != null && secondOperand != null && previousKeyType !== "operator") {
         firstOp = operator;
         secondOperand = displayVal;
-        displayVal = operate(firstOperand, secondOperand, operator);
+        displayVal = Math.round(operate(firstOperand, secondOperand, operator) * 100 ) / 100;
         firstOperand = displayVal;
         addOnce = true;
     } else if (previousKeyType == "operator") {
@@ -161,10 +161,10 @@ function calcEquals() {
         firstOperand = displayVal;
     } else if (secondOperand == null){
         secondOperand = displayVal;
-        displayVal = operate(firstOperand, secondOperand, operator);
+        displayVal = Math.round(operate(firstOperand, secondOperand, operator) * 100 )/ 100;
         firstOperand = displayVal;
     } else if (firstOperand != null && secondOperand != null) {
-        result = operate(firstOperand, secondOperand, operator);
+        result = Math.round(operate(firstOperand, secondOperand, operator) * 100) / 100;
         firstOperand = result;  
         displayVal = firstOperand;
         result = null;
